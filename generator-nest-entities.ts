@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 const pluralize = require('pluralize');
-
 const urlTemplates = `C:/Users/rc/Desktop/project test/scripter/generator/template`
 
 // entrada esperada "warehouseItems"
@@ -21,7 +20,6 @@ interface typeName {
 }
 
 function camelToKebab(str: string) {
-  console.log(str)
   return str
     .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
     .toLowerCase();
@@ -79,7 +77,6 @@ function generateFiles(mainPath: string, entityName: string): void {
   const names: typeName = {
     className: `${pluralWord.slice(0, 1).toUpperCase()}${pluralWord.slice(1)}`,
     instanceName: pluralWord,
-    // kebab: pluralWord
     kebab: camelToKebab(pluralWord)
   }
   console.log("names", names)
