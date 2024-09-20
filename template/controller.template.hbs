@@ -1,0 +1,36 @@
+import { Body, Controller, Delete,Param, Get, Post, Put } from '@nestjs/common'
+import { {$nameM}Repository } from './{$nameKebab}.service'
+import { {$nameM} } from './entity/{$nameKebab}.entity'
+import { GenericResult } from 'src/libs/interfaces/result'
+import { {$nameM}Dto } from './entity/{$nameKebab}.dto'
+import { ListPageDto } from 'src/libs/class/generic.dto'
+
+@Controller('{$name}')
+export class {$nameM}Controller {
+  constructor(private readonly {$name}Repository: {$nameM}Repository) { }
+
+  @Get(':id')
+  async get(@Param('id') id: number): Promise<{$nameM}> {
+    return this.{$name}Repository.get(id)
+  }
+
+  @Post('list-page')
+  async listPage(@Body() listPageDto: ListPageDto) {
+    return await this.{$name}Repository.listPage(listPageDto);
+  }
+
+  @Post("create")
+  async create(@Body('model') model: {$nameM}Dto): Promise<GenericResult> {
+    return this.{$name}Repository.create(model)
+  }
+
+  @Put("update")
+  async update(@Body('id') id: number, @Body('model') model: {$nameM}Dto): Promise<GenericResult> {
+    return this.{$name}Repository.update(id, model)
+  }
+
+  @Delete("delete/:id")
+  async delete(@Param('id') id: number): Promise<GenericResult> {
+    return this.{$name}Repository.delete(id)
+  }
+}

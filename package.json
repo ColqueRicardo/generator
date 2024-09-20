@@ -1,0 +1,23 @@
+{
+  "name": "generator",
+  "version": "1.0.0",
+  "description": "generator-nest-project",
+  "main": "generator-nest-entities.ts",
+  "scripts": {
+    "start": "ts-node generator-nest-entities.ts",
+    "generate": "ts-node generator-nest-entities"
+  },
+  "keywords": [
+    "NestJS",
+    "generator",
+    "entities"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "change-case-all": "^2.1.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "pluralize": "^8.0.0"
+  }
+}

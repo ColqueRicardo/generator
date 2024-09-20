@@ -1,0 +1,16 @@
+import { DataSource, Repository } from 'typeorm'
+import { {$nameM} } from './entity/{$nameKebab}.entity'
+import { GenericRepository } from 'src/libs/class/repository'
+import { InjectRepository } from '@nestjs/typeorm'
+
+export class {$nameM}Repository extends GenericRepository<{$nameM}> {
+  constructor(
+    @InjectRepository({$nameM})
+    private readonly engineRepository: Repository<{$nameM}>,
+    dataSource: DataSource,
+  ) {
+    super(engineRepository, dataSource)
+
+    this.modelClass = {$nameM}
+  }
+}
